@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
     <header>
-      <h1>Makar Wuckert</h1>
+      <h1>Blog</h1>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -20,9 +21,16 @@
       </nav>
     </header>
     <main>
-      <h2>Welcome to my portfolio!</h2>
-      <p>This is a minimalistic portfolio website.</p>
+      <h2>Blog</h2>
+      <div id="blog-posts"></div>
     </main>
     <script src="js/script.js"></script>
+    <script>
+      fetch("blog/your_markdown_file.md")
+        .then((response) => response.text())
+        .then((text) => {
+          document.getElementById("blog-posts").innerHTML = marked(text);
+        });
+    </script>
   </body>
 </html>
