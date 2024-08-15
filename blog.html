@@ -4,36 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
-      <h1>Blog</h1>
+      <h1>My Blog</h1>
       <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Me</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
       </nav>
     </header>
     <main>
-      <h2>Blog</h2>
-      <div id="blog-posts"></div>
+      <section>
+        <h2>Blog Posts</h2>
+        <ul id="blog-posts">
+          <!-- Blog posts will be injected here by JS -->
+        </ul>
+      </section>
     </main>
-    <script src="js/script.js"></script>
-    <script>
-      fetch("blog/your_markdown_file.md")
-        .then((response) => response.text())
-        .then((text) => {
-          document.getElementById("blog-posts").innerHTML = marked(text);
-        });
-    </script>
+    <footer>
+      <p>&copy; 2024 My Portfolio</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
