@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const blogPosts = [
-    { title: "My First Blog Post", file: "blog/blog-post-1.md" },
+    { title: "key learnings internship #1", file: "blog/blog-post-1.md" },
     { title: "Another Interesting Post", file: "blog/blog-post-2.md" },
   ];
 
