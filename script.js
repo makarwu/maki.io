@@ -22,10 +22,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loadBlogPost(file) {
   fetch(file)
-    .then((response) => response.text())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text();
+    })
     .then((markdown) => {
       const converter = new showdown.Converter();
       const html = converter.makeHtml(markdown);
-      document.querySelector("main").innerHTML = `<h2>${file}</h2>${html}`;
+      document.querySelector("main").innerHTML = `<div>${html}</div>`;
+      MathJax.typesetPromise();
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+      document.querySelector(
+        "main"
+      ).innerHTML = `<p>Sorry, an error occurred while loading the blog post.</p>`;
     });
 }
