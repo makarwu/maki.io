@@ -14,6 +14,22 @@ main {
   overflow: auto;
 }
 
+#about-page {
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#home-page {
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  text-align: center;
+  box-sizing: border-box;
+}
+
 footer {
   text-align: center;
   padding: 10px;
