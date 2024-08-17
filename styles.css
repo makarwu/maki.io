@@ -8,6 +8,17 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#blog {
   padding: 20px;
   min-height: 100vh;
   box-sizing: border-box;
@@ -16,16 +27,16 @@ main {
 
 #about-page {
   display: flex;
-  align-items: center; /* Vertical centering */
-  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  justify-content: center;
   text-align: center;
   box-sizing: border-box;
 }
 
 #home-page {
   display: flex;
-  align-items: center; /* Vertical centering */
-  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  justify-content: center;
   text-align: center;
   box-sizing: border-box;
 }
@@ -64,4 +75,13 @@ h2 {
 #blog-posts li {
   list-style: none;
   margin-bottom: 10px;
+}
+
+.profile-picture {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }

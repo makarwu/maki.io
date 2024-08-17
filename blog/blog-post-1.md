@@ -45,3 +45,7 @@ By that, we ensure that the gradient vector g has norm at most \\(\tau \\). With
 ![](/assets/gclipping.png)
 
 Another method which solved the loss problem was trying out many different optimizers (Adam, SGD etc.). Most of the time, Adam is pretty safe with a learning rate of 3e-4. But the optimal learning rate region is much more narrow and problem-specific. I've noticed that we used weight decay as a hyperparameter, but we unfortunetly didn't use it in an optimizer. That's why I decided to use **AdamW** and it worked pretty well! ML problems heavily depend on trying different combinations of parameters and optimizers.
+
+### (3) Double-check your training data
+
+### (4) Try to document everything
