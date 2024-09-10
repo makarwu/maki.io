@@ -8,11 +8,11 @@ It was a great experience and therefore I want to share the most usefull stuff I
 
 ### (1) Pay more attention to the loss functions of your model
 
-What I've noticed is that a lot of big companies mostly analyze the standard evaluation metrics such as accuracy, f1, recall etc. logged by MLFlow. These values were really good, in general (99%+), but a massive problem was the train/val loss. Here is a little sketch how the loss function looked like: (can't publish the real plot, sorry :D)
+What I've noticed is that a lot of big companies mostly analyze the standard evaluation metrics such as accuracy, f1, recall etc. logged by MLFlow. These values were really good, but a massive problem was the train/val loss.
 
-![alt text](/assets/loss.jpg)
+During an adjustment of the code, I encountered unusual behavior in the training process (loss went up and down, kinda like a zig zag structure), which signaled potential problems with model initialization.
 
-As we can see, the loss functions looked very suspicious. To verify the correctness of the training loss function, you can compute the first value point manually (red dot in the image). E.g., if you initialize your final layer correctly, you should measure: \\[-\log \frac{1}{n_\text{classes}} \\] on a softmax at initialization. The same default values can be derived for L2 regression, Huber losses, etc. Clearly, this was not the case in our situation.
+To verify the correctness of the training loss function, you can compute the first value point manually (red dot in the image). E.g., if you initialize your final layer correctly, you should measure: \\[-\log \frac{1}{n_\text{classes}} \\] on a softmax at initialization. The same default values can be derived for L2 regression, Huber losses, etc. Clearly, this was not the case in our situation.
 
 This observation was an indicator, that there was some issue at the initialization of the layers, leading to not generalizing well on unseen data (overfitting).
 
@@ -48,4 +48,4 @@ Another method which solved the loss problem was trying out many different optim
 
 ### (3) Double-check your training data
 
-### (4) Try to document everything
+### (4) Write good design docs
